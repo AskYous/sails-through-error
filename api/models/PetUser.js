@@ -8,10 +8,12 @@
  module.exports = {
    attributes: {
      owner:{
-       model:'user'
+       model:'user',
+       required: true
      },
      pet: {
-       model: 'pet'
+       model: 'pet',
+       required: true
      }
    }
  }

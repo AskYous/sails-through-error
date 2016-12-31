@@ -57,4 +57,49 @@ try {
 
 
 // Start server
-sails.lift(rc('sails'));
+sails.lift(rc('sails'), () => {
+
+  const petDb = sails.models.pet;
+  const userDb = sails.models.user;
+  const petUserDb = sails.models.petuser;
+
+  /**
+   * Step 1: Create a pet, a user, and a petUser. Then call step 2.
+   */
+  (function step1(){
+    // NOTE: The DB is dropped before this code runs
+
+    // Create a pet:
+    const newPet = {
+      'name': 'Grumpy Cat',
+      'color': 'white',
+      'id': 1
+    };
+    petDb.create(newPet, (err, createdPet) => {
+      if(err) return console.error(err);
+      sails.log('Created new pet:', createdPet);
+
+      // Then create a user:
+      const newUser = {
+        'name': 'John Doe',
+        'id': 1
+      };
+      userDb.create(newUser, (err, createdUser) => {
+        if(err) return console.error(err);
+        newUserId = createdUser.id;
+        sails.log('Created new user:', createdUser);
+
+        // Then create a petuser:
+        const petUser = {
+          'owner': 1,
+          'pet': 1
+        };
+        petUserDb.create(petUser, (err, createdPetUser) => {
+          if(err) return console.error(err);
+          sails.log('Created new petUser:', createdPetUser);
+        });
+      });
+    });
+  })();
+
+});

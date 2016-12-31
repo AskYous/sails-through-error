@@ -20,6 +20,8 @@
  * http://sailsjs.org/#!/documentation/concepts/Routes/RouteTargetSyntax.html
  */
 
+ // Create a pet, user, and a petuser:
+
 module.exports.routes = {
 
   /***************************************************************************
