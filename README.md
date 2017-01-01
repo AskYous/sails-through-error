@@ -1,5 +1,7 @@
 # sails-through-error
 
+A repository for issue [#3946](https://github.com/balderdashy/sails/issues/3946) in Sails.
+
 This project was set up to expose (what seems to be) an error in [SailsJS](http://sailsjs.org). Specifically, it exposes a bug when using the [through](http://sailsjs.com/documentation/concepts/models-and-orm/associations/through-associations) attribute between two models. 
 
 ## The Bug
