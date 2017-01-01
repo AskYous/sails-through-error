@@ -8,7 +8,7 @@ To reproduce this bug, simply use the sails CLI to generate three models where t
 Once the attributes of the model are ready, create the records required to fill all tables. Then update a `user` record while setting the pets to a value such as `1 ` or `[1]`. This can be done by running an HTTP PUT request to the existing user which sails will understand as an update request, then apply the necessary headers. The server will return a  400  error saying there was a missing value for the middle model.
 
 ## This App
-I created this app which you can clone yourself. This app already has the necessary models needed with the attributes ready and a record is automatically inserted into each model's table. Once you clone this application, run `sails lift` and run an HTTP PUT request with the following properties:
+I created this app which you can clone yourself. This app already has the necessary models needed with the attributes ready and a record is automatically inserted into each model's table. Once you clone this application, run `node app.js` and run an HTTP PUT request with the following properties:
   - URL: http://localhost:1337/user/1
   - Headers:
     - Body:
